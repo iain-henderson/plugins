@@ -45,4 +45,9 @@ class ServiceController extends ApiMutableServiceControllerBase
     protected static $internalServiceEnabled = 'settings.enabled';
     protected static $internalServiceTemplate = 'OPNsense/inadyn/*';
     protected static $internalServiceName = 'inadyn';
+
+    protected function reconfigureForceRestart()
+    {
+        return 0;
+    }
 }

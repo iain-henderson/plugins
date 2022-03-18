@@ -1,6 +1,6 @@
 <acl>
     <page-services-inadyn>
-        <name>Services: In-A-Dyn</name>
+        <name>Services: Dynamic DNS Client</name>
         <patterns>
             <pattern>ui/inadyn/*</pattern>
             <pattern>api/inadyn/*</pattern>

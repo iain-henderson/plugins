@@ -38,8 +38,7 @@ class InADyn extends BaseModel
 {
     /**
      * check if module is enabled
-     * @param $checkCertificates bool enable in-depth check (1 or more active certificates)
-     * @return bool is the AcmeClient service enabled
+     * @return bool is inadyn enabled
      */
     public function isEnabled()
     {
