@@ -6,13 +6,6 @@
         <help>Enable inadyn</help>
     </field>
     <field>
-        <id>inadyn.settings.verbose</id>
-        <label>Verbose</label>
-        <type>checkbox</type>
-        <advanced>true</advanced>
-        <help>Enable verbose logging</help>
-    </field>
-    <field>
         <id>inadyn.settings.verify_address</id>
         <label>Verify Address</label>
         <type>checkbox</type>
