@@ -1,0 +1,103 @@
+<form>
+    <field>
+        <id>account.enabled</id>
+        <label>Enabled</label>
+        <type>checkbox</type>
+        <help>Enable this provider configuration.</help>
+    </field>
+    <field>
+        <id>account.provider</id>
+        <label>Provider</label>
+        <type>dropdown</type>
+        <help>Select the provider to use.</help>
+        <style>trigger_optional_configuration</style>
+    </field>
+    <field>
+        <id>account.username</id>
+        <label>Username</label>
+        <type>text</type>
+        <help><![CDATA[Username or login to use.<br>
+            For Cloudflare this is the Zone Name]]></help>
+    </field>
+    <field>
+        <id>account.password</id>
+        <label>Password</label>
+        <type>password</type>
+        <help>Password associated with this account.</help>
+    </field>
+    <field>
+        <id>account.ddns</id>
+        <label>DDNS Server</label>
+        <type>text</type>
+        <help><![CDATA[DDNS server. By default the hostname is appended to the path, unless "Append My IP" is checked.  Alternatively, printf(3) like format specifiers may be used for a fully customizable HTTP GET update request.  The following format specifiers are currently supported:<br>
+        %u    username<br>
+        %p    password, if HTTP basic auth is not used<br>
+        %h    hostname<br>
+        %i    IP address<br>
+        With the following example:<br>
+        https://example.com/update?user=%u&password=%p&domain=%h&myip=%i<br>
+        the resulting update URL would be expanded to<br>
+        https://example.com/update?user=myuser&password=mypass&domain=YOURDOMAIN.TLD&myip=1.2.3.4<br>
+        However, the password is usually never sent in clear text in the HTTP GET URL.  Most DDNS providers instead rely on HTTP basic auth., which inadyn always relays to the server in the HTTP header of update requests.]]></help>
+        <style>optional_configuration account_provider-custom</style>
+    </field>
+    <field>
+        <id>account.hostnames</id>
+        <label>Hostname(s)</label>
+        <type>select_multiple</type>
+        <style>tokenize</style>
+        <allownew>true</allownew>
+        <help>Hostname to update.</help>
+    </field>
+    <field>
+        <id>account.description</id>
+        <label>Description</label>
+        <type>text</type>
+    </field>
+    <field>
+        <id>account.check_ip</id>
+        <label>Check IP Method</label>
+        <type>dropdown</type>
+        <help>This setting allows you to override the default checkip server.</help>
+        <style>trigger_optional_configuration</style>
+        <advanced>true</advanced>
+    </field>
+    <field>
+        <id>account.interface</id>
+        <label>Interface</label>
+        <type>dropdown</type>
+        <style>optional_configuration account_check_ip-interface</style>
+    </field>
+    <field>
+        <id>account.user_agent</id>
+        <label>User Agent</label>
+        <type>text</type>
+        <advanced>true</advanced>
+        <help>Same as the global setting, but only for this provider.</help>
+    </field>
+    <field>
+        <id>account.wildcard</id>
+        <label>Wildcard</label>
+        <type>checkbox</type>
+        <style>optional_configuration account_provider-custom
+            account_provider-easydns account_provider-loopia</style>
+        <advanced>true</advanced>
+        <help>Add a DNS wildcard CNAME record that points to the configured host.</help>
+    </field>
+    <field>
+        <id>account.ttl</id>
+        <label>Time To Live (TTL)</label>
+        <type>text</type>
+        <style>optional_configuration account_provider-cloudflare</style>
+        <advanced>true</advanced>
+        <help>Time to live of your domain name.</help>
+    </field>
+    <field>
+        <id>account.proxied</id>
+        <label>Proxied</label>
+        <type>checkbox</type>
+        <style>optional_configuration account_provider-cloudflare</style>
+        <advanced>true</advanced>
+        <help>Proxy DNS origin via provider's CDN network.</help>
+    </field>
+</form>

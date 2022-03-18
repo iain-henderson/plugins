@@ -1,0 +1,77 @@
+<form>
+    <field>
+        <id>inadyn.settings.enabled</id>
+        <label>Enable</label>
+        <type>checkbox</type>
+        <help>Enable inadyn</help>
+    </field>
+    <field>
+        <id>inadyn.settings.verbose</id>
+        <label>Verbose</label>
+        <type>checkbox</type>
+        <advanced>true</advanced>
+        <help>Enable verbose logging</help>
+    </field>
+    <field>
+        <id>inadyn.settings.verify_address</id>
+        <label>Verify Address</label>
+        <type>checkbox</type>
+        <advanced>true</advanced>
+        <help>Verify both IPv4 and IPv6 addresses, making sure the address is a valid Internet address.  Invalid addresses are, e.g., link local, loopback, multicast and known experimental addresses.</help>
+    </field>
+    <field>
+        <id>inadyn.settings.fake_address</id>
+        <label>Fake Address</label>
+        <type>checkbox</type>
+        <advanced>true</advanced>
+        <help>Fake an address update with a “random” address in the 203.0.113.0/24 range, example address range from RFC5737, before updating with the actual IP address.  This is completely outside spec., but can be useful for people who very rarely, if ever, get an IP address change.  Because some DDNS service providers will not register even a forced update if the IP is the same.  As a result the user could be deregistered as an inactive user.</help>
+    </field>
+    <field>
+        <id>inadyn.settings.allow_ipv6</id>
+        <label>Allow IPv6</label>
+        <type>checkbox</type>
+        <advanced>true</advanced>
+        <help>Should IPv6 addresses be allowed.</help>
+    </field>
+    <field>
+        <id>inadyn.settings.period</id>
+        <label>Period</label>
+        <type>text</type>
+        <help>How often the IP is checked, in seconds.</help>
+    </field>
+    <field>
+        <id>inadyn.settings.forced_update</id>
+        <label>Forced Update</label>
+        <type>text</type>
+        <advanced>true</advanced>
+        <help>How often the IP should be updated even if it is not changed. The time should be given in seconds.</help>
+    </field>
+    <field>
+        <id>inadyn.settings.secure_ssl</id>
+        <label>Secure SSL</label>
+        <type>checkbox</type>
+        <advanced>true</advanced>
+        <help>If the HTTPS certificate validation fails for a provider inadyn aborts the DDNS update before sending any credentials.  When this setting is disabled, then inadyn will only issue a warning.  By default this setting is enabled, because security matters.</help>
+    </field>
+    <field>
+        <id>inadyn.settings.user_agent</id>
+        <label>User Agent</label>
+        <type>text</type>
+        <advanced>true</advanced>
+        <help>Specify the User-Agent string to send to the DDNS provider on checkip and update requests.  Some providers require this field to be set to a specific string, some may be OK with "Mozilla/4.0". The default is to send "inadyn/VERSION SUPPORTURL", where VERSION is the current inadyn version, and SUPPORTURL is the upstream support URL.</help>
+    </field>
+    <field>
+        <id>inadyn.settings.check_ip</id>
+        <label>IP Address Source</label>
+        <type>dropdown</type>
+        <advanced>true</advanced>
+        <style>trigger_optional_configuration</style>
+        <help>How to determine the IP address to use for this host</help>
+    </field>
+    <field>
+        <id>inadyn.settings.interface</id>
+        <label>Interface</label>
+        <type>dropdown</type>
+        <style>optional_configuration inadyn_settings_check_ip-interface</style>
+    </field>
+</form>

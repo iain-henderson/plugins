@@ -1,0 +1,8 @@
+<menu>
+    <Services>
+        <DynamicDNSClient VisibleName="Dynamic DNS Client" cssClass="fa fa-tags fa-fw">
+            <Settings order="10" url="/ui/inadyn/"/>
+            <log order="100" VisibleName="Log File" url="/ui/diagnostics/log/core/inadyn"/>
+        </DynamicDNSClient>
+    </Services>
+</menu>

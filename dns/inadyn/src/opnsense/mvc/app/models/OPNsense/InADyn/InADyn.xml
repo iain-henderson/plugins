@@ -1,0 +1,247 @@
+<model>
+    <mount>//OPNsense/InADyn</mount>
+    <version>0.0.1</version>
+    <description>
+        Internet Automated Dynamic DNS Client
+    </description>
+    <items>
+        <constants>
+            <ip_dyndns type="UrlField"><default>http://checkip.dyndns.org</default></ip_dyndns>
+            <ip_freedns type="UrlField"><default>https://freedns.afraid.org/dynamic/check.php</default></ip_freedns>
+            <ip_googledomains type="UrlField"><default>https://domains.google.com/checkip</default></ip_googledomains>
+            <ip_he type="UrlField"><default>http://checkip.dns.he.net/</default></ip_he>
+            <ip_ip4only_me type="UrlField"><default>http://ip4only.me/api/</default></ip_ip4only_me>
+            <ip_ip6only_me type="UrlField"><default>http://ip6only.me/api/</default></ip_ip6only_me>
+            <ip_ipify_ipv4 type="UrlField"><default>https://api.ipify.org/</default></ip_ipify_ipv4>
+            <ip_ipify_ipv6 type="UrlField"><default>https://api6.ipify.org/</default></ip_ipify_ipv6>
+            <ip_loopia type="UrlField"><default>http://dns.loopia.se/checkip/checkip.php</default></ip_loopia>
+            <ip_myonlineportal type="UrlField"><default>https://myonlineportal.net/checkip</default></ip_myonlineportal>
+            <ip_noip_ipv4 type="UrlField"><default>http://ip1.dynupdate.no-ip.com/</default></ip_noip_ipv4>
+            <ip_noip_ipv6 type="UrlField"><default>http://ip1.dynupdate6.no-ip.com/</default></ip_noip_ipv6>
+            <ip_nsupdate_info_ipv4 type="UrlField"><default>https://ipv4.nsupdate.info/myip</default></ip_nsupdate_info_ipv4>
+            <ip_nsupdate_info_ipv6 type="UrlField"><default>https://ipv6.nsupdate.info/myip</default></ip_nsupdate_info_ipv6>
+            <ip_zoneedit type="UrlField"><default>http://dynamic.zoneedit.com/checkip.html</default></ip_zoneedit>
+            <ddns_changeip type="EmailField"><default>default@changeip.com</default></ddns_changeip>
+            <ddns_cloudflare type="TextField"><default>default@cloudflare.com</default></ddns_cloudflare>
+            <ddns_cloudxns type="EmailField"><default>default@cloudxns.net</default></ddns_cloudxns>
+            <ddns_ddnss type="EmailField"><default>default@ddnss.de</default></ddns_ddnss>
+            <ddns_dhis type="EmailField"><default>default@dhis.org</default></ddns_dhis>
+            <ddns_dnsexit type="EmailField"><default>default@dnsexit.com</default></ddns_dnsexit>
+            <ddns_dnspod type="EmailField"><default>default@dnspod.cn</default></ddns_dnspod>
+            <ddns_duckdns type="EmailField"><default>default@duckdns.org</default></ddns_duckdns>
+            <ddns_duiadns type="EmailField"><default>default@duiadns.net</default></ddns_duiadns>
+            <ddns_dyndns type="EmailField"><default>default@dyndns.org</default></ddns_dyndns>
+            <ddns_dynsomatic type="EmailField"><default>default@dnsomatic.com</default></ddns_dynsomatic>
+            <ddns_easydns type="EmailField"><default>default@easydns.com</default></ddns_easydns>
+            <ddns_freedns type="EmailField"><default>default@freedns.afraid.org</default></ddns_freedns>
+            <ddns_noip type="EmailField"><default>default@no-ip.com</default></ddns_noip>
+            <ddns_selfhost type="EmailField"><default>default@selfhost.de</default></ddns_selfhost>
+            <ddns__3322 type="EmailField"><default>dyndns@3322.org</default></ddns__3322>
+            <ddns_pubyun type="EmailField"><default>dyndns@3322.org</default></ddns_pubyun>
+            <ddns_he-net type="EmailField"><default>dyndns@he.net</default></ddns_he-net>
+            <ddns_ipv6tb_he-net type="EmailField"><default>ipv6tb@he.net</default></ddns_ipv6tb_he-net>
+            <ddns_tunnelbroker type="EmailField"><default>default@tunnelbroker.net</default></ddns_tunnelbroker>
+            <ddns_spdyn type="EmailField"><default>default@spdyn.de</default></ddns_spdyn>
+            <ddns_nsupdatev4 type="EmailField"><default>ipv4@nsupdate.info</default></ddns_nsupdatev4>
+            <ddns_loopia type="EmailField"><default>default@loopia.com</default></ddns_loopia>
+            <ddns_dynu type="EmailField"><default>default@dynu.com</default></ddns_dynu>
+            <ddns_dynv6ip4 type="EmailField"><default>default@ipv4.dynv6.com</default></ddns_dynv6ip4>
+            <ddns_dynv6 type="EmailField"><default>default@dynv6.com</default></ddns_dynv6>
+            <ddns_freemyip type="EmailField"><default>default@freemyip.com</default></ddns_freemyip>
+            <ddns_googledomains type="EmailField"><default>default@domains.google.com</default></ddns_googledomains>
+            <ddns_gira type="EmailField"><default>default@gira.de</default></ddns_gira>
+            <ddns_sitelutions type="EmailField"><default>default@sitelutions.com</default></ddns_sitelutions>
+            <ddns_yandex type="EmailField"><default>default@pdd.yandex.ru</default></ddns_yandex>
+            <ddns_ovh type="EmailField"><default>default@ovh.com</default></ddns_ovh>
+            <ddns_strato type="EmailField"><default>default@strato.com</default></ddns_strato>
+            <ddns_zoneedit type="EmailField"><default>default@zoneedit.com</default></ddns_zoneedit>
+        </constants>
+        <settings>
+            <enabled type="BooleanField">
+                <default>1</default>
+                <Required>Y</Required>
+            </enabled>
+            <verbose type="BooleanField">
+                <default>0</default>
+                <Required>Y</Required>
+            </verbose>
+            <verify_address type="BooleanField">
+                <default>1</default>
+                <Required>Y</Required>
+            </verify_address>
+            <fake_address type="BooleanField">
+                <default>1</default>
+                <Required>Y</Required>
+            </fake_address>
+            <allow_ipv6 type="BooleanField">
+                <default>1</default>
+                <Required>Y</Required>
+            </allow_ipv6>
+            <period type="IntegerField">
+                <default>300</default>
+                <Required>Y</Required>
+                <MinimumValue>1</MinimumValue>
+                <MaximumValue>86400</MaximumValue>
+            </period>
+            <forced_update type="IntegerField">
+                <default>2592000</default>
+                <MinimumValue>1</MinimumValue>
+            </forced_update>
+            <secure_ssl type="BooleanField">
+                <default>1</default>
+                <Required>Y</Required>
+            </secure_ssl>
+            <user_agent type="TextField">
+                <Required>N</Required>
+            </user_agent>
+            <check_ip type="OptionField">
+                <Required>Y</Required>
+                <default>default</default>
+                <ValidationMessage>An IP service type is required.</ValidationMessage>
+                <OptionValues>
+                    <default>default</default>
+                    <dyndns>dyndns</dyndns>
+                    <freedns>freedns</freedns>
+                    <googledomains>googledomains</googledomains>
+                    <he>he</he>
+                    <ip4only_me>ip4only.me</ip4only_me>
+                    <ip6only_me>ip6only.me</ip6only_me>
+                    <ipify_ipv4>ipify-ipv4</ipify_ipv4>
+                    <ipify_ipv6>ipify-ipv6</ipify_ipv6>
+                    <loopia>loopia</loopia>
+                    <myonlineportal>myonlineportal</myonlineportal>
+                    <noip_ipv4>noip-ipv4</noip_ipv4>
+                    <noip_ipv6>noip-ipv6</noip_ipv6>
+                    <nsupdate_info_ipv4>nsupdate.info-ipv4</nsupdate_info_ipv4>
+                    <nsupdate_info_ipv6>nsupdate.info-ipv6</nsupdate_info_ipv6>
+                    <zoneedit>zoneedit</zoneedit>
+                    <interface>Interface</interface>
+                </OptionValues>
+            </check_ip>
+            <interface type="InterfaceField">
+                <Required>N</Required>
+                <multiple>N</multiple>
+                <default>wan</default>
+            </interface>
+        </settings>
+        <accounts>
+            <account type="ArrayField">
+                <enabled type="BooleanField">
+                    <default>1</default>
+                    <Required>Y</Required>
+                </enabled>
+                <provider type="OptionField">
+                    <Required>Y</Required>
+                    <ValidationMessage>A provider is required.</ValidationMessage>
+                    <OptionValues>
+                        <changeip>Changeip</changeip>
+                        <cloudflare>Cloudflare</cloudflare>
+                        <cloudxns>CloudXNS</cloudxns>
+                        <ddnss>Dynamisches DNS</ddnss>
+                        <dhis>DHIS.org</dhis>
+                        <dnsexit>dnsExit</dnsexit>
+                        <dnspod>DNSPod</dnspod>
+                        <duckdns>DuckDNS</duckdns>
+                        <duiadns>D.U.I.A.</duiadns>
+                        <dyndns>DynDNS</dyndns>
+                        <dynsomatic>DNSomatic</dynsomatic>
+                        <easydns>EasyDNS</easydns>
+                        <freedns>FreeDNS</freedns>
+                        <noip>No-IP</noip>
+                        <selfhost>Selfhost.de</selfhost>
+                        <_3322>3322.org</_3322>
+                        <pubyun>PubYun</pubyun>
+                        <he-net>HE.net</he-net>
+                        <ipv6tb_he-net>HE.net IPv6</ipv6tb_he-net>
+                        <tunnelbroker>HE.net TunnelBroker</tunnelbroker>
+                        <spdyn>spDYN</spdyn>
+                        <nsupdatev4>nsupdate.info (IPv4)</nsupdatev4>
+                        <loopia>Loopia</loopia>
+                        <dynu>Dynu</dynu>
+                        <dynv6ip4>dynv6 (IP4)</dynv6ip4>
+                        <dynv6>dynv6</dynv6>
+                        <freemyip>FreeMyIP</freemyip>
+                        <googledomains>Google</googledomains>
+                        <gira>GiraDNS</gira>
+                        <sitelutions>Sitelutions</sitelutions>
+                        <yandex>Yandex PDD</yandex>
+                        <ovh>OVH.com</ovh>
+                        <strato>STRATO</strato>
+                        <zoneedit>Zoneedit</zoneedit>
+                        <custom>Custom</custom>
+                    </OptionValues>
+                </provider>
+                <username type="TextField">
+                    <Required>N</Required>
+                    <mask>/^([a-zA-Z0-9\-.@_:+])*$/u</mask>
+                    <ValidationMessage>The username contains invalid characters.</ValidationMessage>
+                </username>
+                <password type="TextField">
+                    <Required>Y</Required>
+                    <mask>/^[^\n]*$/</mask>
+                </password>
+                <check_ip type="OptionField">
+                    <Required>Y</Required>
+                    <default>none</default>
+                    <ValidationMessage>An IP service type is required.</ValidationMessage>
+                    <OptionValues>
+                        <none>Default (Provider)</none>
+                        <default>Default (inadyn)</default>
+                        <dyndns>dyndns</dyndns>
+                        <freedns>freedns</freedns>
+                        <googledomains>googledomains</googledomains>
+                        <he>he</he>
+                        <ip4only_me>ip4only.me</ip4only_me>
+                        <ip6only_me>ip6only.me</ip6only_me>
+                        <ipify_ipv4>ipify-ipv4</ipify_ipv4>
+                        <ipify_ipv6>ipify-ipv6</ipify_ipv6>
+                        <loopia>loopia</loopia>
+                        <myonlineportal>myonlineportal</myonlineportal>
+                        <noip_ipv4>noip-ipv4</noip_ipv4>
+                        <noip_ipv6>noip-ipv6</noip_ipv6>
+                        <nsupdate_info_ipv4>nsupdate.info-ipv4</nsupdate_info_ipv4>
+                        <nsupdate_info_ipv6>nsupdate.info-ipv6</nsupdate_info_ipv6>
+                        <zoneedit>zoneedit</zoneedit>
+                        <interface>Interface</interface>
+                    </OptionValues>
+                </check_ip>
+                <interface type="InterfaceField">
+                    <Required>N</Required>
+                    <multiple>N</multiple>
+                    <default>wan</default>
+                </interface>
+                <ddns type="UrlField">
+                    <Required>N</Required>
+                </ddns>
+                <hostnames type="HostnameField">
+                    <Required>Y</Required>
+                    <IpAllowed>N</IpAllowed>
+                    <HostWildcardAllowed>Y</HostWildcardAllowed>
+                    <FqdnWildcardAllowed>Y</FqdnWildcardAllowed>
+                    <ZoneRootAllowed>Y</ZoneRootAllowed>
+                    <AsList>Y</AsList>
+                    <FieldSeparator>,</FieldSeparator>
+                </hostnames>
+                <user_agent type="TextField">
+                    <Required>N</Required>
+                </user_agent>
+                <wildcard type="BooleanField">
+                    <default>0</default>
+                    <Required>Y</Required>
+                </wildcard>
+                <ttl type="IntegerField">
+                    <Required>N</Required>
+                </ttl>
+                <proxied type="BooleanField">
+                    <default>0</default>
+                    <Required>Y</Required>
+                </proxied>
+                <description type="TextField">
+                    <Required>N</Required>
+                    <mask>/^([\t\n\v\f\r 0-9a-zA-Z.,_\x{00A0}-\x{FFFF}]){1,255}$/u</mask>
+                    <ValidationMessage>Description should be a string between 1 and 255 characters</ValidationMessage>
+                </description>
+            </account>
+        </accounts>
+    </items>
+</model>

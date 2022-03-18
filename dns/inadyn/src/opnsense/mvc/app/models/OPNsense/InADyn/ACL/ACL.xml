@@ -1,0 +1,9 @@
+<acl>
+    <page-services-inadyn>
+        <name>Services: In-A-Dyn</name>
+        <patterns>
+            <pattern>ui/inadyn/*</pattern>
+            <pattern>api/inadyn/*</pattern>
+        </patterns>
+    </page-services-inadyn>
+</acl>
