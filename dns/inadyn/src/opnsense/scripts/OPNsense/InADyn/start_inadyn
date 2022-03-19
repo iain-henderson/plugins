@@ -1,0 +1,3 @@
+/bin/mkdir -p /var/cache/inadyn /var/run/inadyn
+/usr/sbin/chown inadyn:inadyn /var/cache/inadyn /var/run/inadyn
+/usr/local/etc/rc.d/inadyn start
