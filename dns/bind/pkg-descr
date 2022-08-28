@@ -4,9 +4,18 @@ one computer can find another computer on the basis of its name.
 The BIND software distribution contains all of the software
 necessary for asking and answering name service questions.
 
+WWW: https://www.isc.org
 
 Plugin Changelog
 ================
+
+1.24
+
+* Separate tables for master and slave zones in UI (contributed by Patrick M. Hausen and Manuel Faux)
+
+1.23
+
+* Avoid errors with repeated primary servers and keys (contributed by Michael Newton)
 
 1.22
 
@@ -116,6 +125,3 @@ Plugin Changelog
 1.0
 
 * Initial release
-
-
-WWW: https://www.isc.org
