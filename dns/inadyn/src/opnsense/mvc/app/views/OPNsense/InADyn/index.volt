@@ -55,18 +55,18 @@ POSSIBILITY OF SUCH DAMAGE.
           }
         });
 
-        let show_advanced = $('[id*="show_advanced"]').hasClass("fa-toggle-on");
         $(".trigger_optional_configuration").each(function(){
             let form_id = "#" + $(this).closest("form")[0].id.replace(/\./g, "\\.");
             let trigger_id = "#" + this.id.replace(/\./g, "\\.");
             let trigger_class = this.id.replace(/\./g, "_");
+            let trigger_tr = $(this).closest("tr");
             $(trigger_id).change(function(){
                 let triggered_class = trigger_class + "-" + $(this).val();
                 $(form_id + " .optional_configuration").each(function(){
                     let this_item = $(this);
                     let closest_tr = this_item.closest("tr");
                     let show_item = this_item.hasClass(triggered_class);
-                    if (show_item && !show_advanced && closest_tr.attr("data-advanced"))
+                    if (show_item && !$('[id*="show_advanced"]').hasClass("fa-toggle-on") && trigger_tr.attr("data-advanced"))
                         show_item = false;
                     if (show_item) {
                         this_item.prop("disabled", false);
@@ -78,6 +78,8 @@ POSSIBILITY OF SUCH DAMAGE.
                 });
             });
             $(trigger_id).change();
+            trigger_tr.on("hide", function() { $(".trigger_optional_configuration").change() });
+            trigger_tr.on("show", function() { $(".trigger_optional_configuration").change() });
         });
     });
 </script>

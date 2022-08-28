@@ -65,6 +65,7 @@
         <id>inadyn.settings.interface</id>
         <label>Interface</label>
         <type>dropdown</type>
+        <advanced>true</advanced>
         <style>optional_configuration inadyn_settings_check_ip-interface</style>
     </field>
 </form>

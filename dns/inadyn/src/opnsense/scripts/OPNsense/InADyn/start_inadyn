@@ -1,3 +1,6 @@
+#!/bin/sh
+
 /bin/mkdir -p /var/cache/inadyn /var/run/inadyn
-/usr/sbin/chown inadyn:inadyn /var/cache/inadyn /var/run/inadyn
+/usr/sbin/chown -R inadyn:inadyn /var/cache/inadyn /var/run/inadyn
+/bin/chmod 750 /var/cache/inadyn /var/run/inadyn
 /usr/local/etc/rc.d/inadyn start

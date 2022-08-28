@@ -66,6 +66,7 @@
         <id>account.interface</id>
         <label>Interface</label>
         <type>dropdown</type>
+        <advanced>false</advanced>
         <style>optional_configuration account_check_ip-interface</style>
     </field>
     <field>
@@ -81,7 +82,7 @@
         <type>checkbox</type>
         <style>optional_configuration account_provider-custom
             account_provider-easydns account_provider-loopia</style>
-        <advanced>true</advanced>
+        <advanced>false</advanced>
         <help>Add a DNS wildcard CNAME record that points to the configured host.</help>
     </field>
     <field>
@@ -89,7 +90,7 @@
         <label>Time To Live (TTL)</label>
         <type>text</type>
         <style>optional_configuration account_provider-cloudflare</style>
-        <advanced>true</advanced>
+        <advanced>false</advanced>
         <help>Time to live of your domain name.</help>
     </field>
     <field>
@@ -97,7 +98,7 @@
         <label>Proxied</label>
         <type>checkbox</type>
         <style>optional_configuration account_provider-cloudflare</style>
-        <advanced>true</advanced>
+        <advanced>false</advanced>
         <help>Proxy DNS origin via provider's CDN network.</help>
     </field>
 </form>
